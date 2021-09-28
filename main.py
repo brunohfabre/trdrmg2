@@ -132,4 +132,5 @@ def run():
   return
 
 while True:
+  print('while principal')
   run()
