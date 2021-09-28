@@ -57,6 +57,7 @@ loss = 0
 entry = int(settings.get('OPERATION', 'entry'))
 account_type = settings.get('ACCOUNT', 'type')
 
+assets = []
 strategies_to_execute = {}
 
 Iq.change_balance(account_type)
@@ -83,24 +84,7 @@ def run():
   global loss
   global entry
   global strategies_to_execute
-
-  assets = get_assets(Iq, 'digital')
-
-  for asset in assets:
-    strategies_to_execute[asset] = {
-      'mhi': 2,
-      'mhihigh': 2,
-      'mhi2': 2,
-      'mhi2high': 2,
-      'mhi3': 2,
-      'mhi3high': 2,
-      'milhao': 2,
-      'milhaolow': 2,
-      'torresgemeas': 2,
-      'melhorde3': 2,
-      'padrao23': 2,
-      'tresmosqueteiros': 2,
-    }
+  global assets
 
   candles = get_candles(Iq, assets, period)
 
@@ -127,10 +111,27 @@ def run():
 
   stop_win()
 
-  print(strategies_to_execute)
-
   return
 
+assets = get_assets(Iq, 'digital')
+
+for asset in assets:
+  strategies_to_execute[asset] = {
+    'mhi': 2,
+    'mhihigh': 2,
+    'mhi2': 2,
+    'mhi2high': 2,
+    'mhi3': 2,
+    'mhi3high': 2,
+    'milhao': 2,
+    'milhaolow': 2,
+    'torresgemeas': 2,
+    'melhorde3': 2,
+    'padrao23': 2,
+    'tresmosqueteiros': 2,
+  }
+
 while True:
-  print('while principal')
+  print(strategies_to_execute)
+  
   run()
