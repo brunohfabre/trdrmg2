@@ -132,6 +132,4 @@ for asset in assets:
   }
 
 while True:
-  print(strategies_to_execute)
-  
   run()

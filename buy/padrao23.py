@@ -61,6 +61,8 @@ def padrao23(Iq, asset, initial_entry, entry):
             print('Error entry')
 
             return ('loss', loss)
+
+        return ('loss', loss)
       
       else:
         sleep(3)
