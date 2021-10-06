@@ -90,6 +90,11 @@ def run():
 
   strategies = process_strategies(candles, period, strategies_to_execute)
 
+  if len(strategies == 0):
+    print('Nenhuma moeda encontrada para rodar.')
+    
+    return
+
   strategies.reverse()
 
   strategy = strategies[0]
